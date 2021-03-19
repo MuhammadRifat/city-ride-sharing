@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "name": "Bike",
+      "capacity": "2",
+      "image": "https://netrinoimages.s3.eu-west-2.amazonaws.com/2008/02/14/9888/138072/royal_enfield_continental_gt_2017_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_1626845_o.jpg",
+      "costPerKM": "40"
+    },
+    {
+      "id": 2,
+      "name": "Car",
+      "capacity": "4",
+      "image": "https://image.freepik.com/free-vector/green-sports-car-isolated-white-vector_53876-64420.jpg",
+      "costPerKM": "50"
+    },
+    {
+      "id": 3,
+      "name": "Bus",
+      "capacity": "40",
+      "image": "https://www.renderhub.com/agungkuncoro/indonesian-bus-evolander-3d-model/indonesian-bus-evolander-3d-model-01.jpg",
+      "costPerKM": "30"
+    },
+    {
+      "id": 4,
+      "name": "Train",
+      "capacity": "",
+      "image": "https://www.renderhub.com/wirecase3d/3d-train-05/3d-train-05-02.jpg",
+      "costPerKM": "10"
+    }
+  ]

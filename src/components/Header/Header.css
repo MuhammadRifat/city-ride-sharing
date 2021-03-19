@@ -1,0 +1,10 @@
+.link{
+    text-decoration: none;
+    color: black;
+    margin-top: 20px;
+    margin-right: 40px;
+}
+.link:hover{
+    text-decoration: none;
+    color: rgb(24, 23, 23);
+}
