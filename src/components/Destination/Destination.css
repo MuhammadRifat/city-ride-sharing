@@ -1,0 +1,28 @@
+.search-location{
+    background-color: lightgray;
+    border: 1px lightgray;
+    border-radius: 10px;
+    padding: 20px;
+}
+.search-location input{
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: white;
+}
+.search-location button{
+    background-color: tomato;
+    color: white;
+    width: 100%;
+    border: 1px solid tomato;
+    border-radius: 10px;
+    height: 35px;
+    margin-top: 10px;
+}
+
+.google-maps{
+    height: 88vh;
+    width: 100%;
+}

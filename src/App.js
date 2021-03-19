@@ -9,7 +9,7 @@ import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Search from './components/Search/Search';
+import Destination from './components/Destination/Destination';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 
@@ -24,8 +24,8 @@ function App() {
           <Route path="/home">
             <Home/>
           </Route>
-          <PrivateRoute path="/destination">
-            <Search/>
+          <PrivateRoute path="/destination/:vehicle">
+            <Destination/>
           </PrivateRoute>
           <Route path="/login">
             <Login/>

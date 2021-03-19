@@ -135,9 +135,8 @@ const SignUp = () => {
     }
 
     return (
-        <>
-        <Header/>
         <Container>
+        <Header/>
             <Row className="justify-content-md-center">
                 <Col md={6} className="mt-4">
                     <div className="p-4" style={{border:'2px solid lightgray'}}>
@@ -172,7 +171,6 @@ const SignUp = () => {
                 </Col>
             </Row>
         </Container>
-        </>
     );
 };
 

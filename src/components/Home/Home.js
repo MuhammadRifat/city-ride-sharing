@@ -14,8 +14,8 @@ const Home = () => {
     }, [])
     return (
         <div className="home">
-            <Header/>
             <Container>
+            <Header/>
                 <Row className="mt-5 pt-5">
                     {
                         vehicles?.map(vehicle => <Vehicle vehicle={vehicle} key={vehicle.id}></Vehicle>)

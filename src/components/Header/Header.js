@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <Nav className="justify-content-end">
             <Link className="link" to="/home">Home </Link>
-            <Link className="link" to="/destination">Destination </Link>
+            <Link className="link" to="/destination/Bus">Destination </Link>
             <Link className="link" to="/blog">Blog </Link>
             <Link className="link" to="/contact">Contact </Link>
         </Nav>

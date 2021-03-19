@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Vehicle.css';
 
 const Vehicle = (props) => {
@@ -7,10 +8,10 @@ const Vehicle = (props) => {
     const {name, image} = props.vehicle;
     return (
         <Col md={3} className="mt-3">
-            <div className="vehicle">
+            <Link to={`/destination/${name}`}> <div className="vehicle">
                 <img src={image} alt=""/>
                 <h5>{name.toUpperCase()}</h5>
-            </div>
+            </div></Link>
         </Col>
     );
 };
