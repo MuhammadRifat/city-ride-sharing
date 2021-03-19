@@ -34,7 +34,10 @@ const SignUp = () => {
                     email: res.email,
                     name: res.name,
                     error: '',
-                    photo: res.photoURL
+                    photo: res.photoURL,
+                    pickFrom: '',
+                    pickTo: '',
+                    vehicle: ''
                 }
                 setLoggedInUser(newUser);
                 history.replace(from);
@@ -57,7 +60,10 @@ const SignUp = () => {
                     email: res.email,
                     name: res.name,
                     error: '',
-                    photo: res.photoURL
+                    photo: res.photoURL,
+                    pickFrom: '',
+                    pickTo: '',
+                    vehicle: ''
                 }
                 setLoggedInUser(newUser);
                 history.replace(from);
@@ -104,9 +110,12 @@ const SignUp = () => {
                         const newUser = {
                             isSignIn: true,
                             email: res.email,
-                            name: res.name,
+                            name: res.displayName,
                             error: '',
-                            photo: res.photoURL
+                            photo: res.photoURL,
+                            pickFrom: '',
+                            pickTo: '',
+                            vehicle: ''
                         }
                         setLoggedInUser(newUser);
                         const userDetail = {...user};
