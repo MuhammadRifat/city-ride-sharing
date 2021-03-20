@@ -6,7 +6,7 @@ import './Vehicle.css';
 const Vehicle = (props) => {
     const {name, image} = props.vehicle;
     return (
-        <Col xl={3} className="mt-3">
+        <Col xl={3} className="mt-3 mb-1">
             <Link to={`/destination/${name}`}> <div className="vehicle">
                 <img src={image} alt=""/>
                 <h5>{name.toUpperCase()}</h5>
