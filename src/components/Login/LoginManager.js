@@ -53,9 +53,10 @@ export const handleLogIn = (email, password) => {
   });
 }
 
-export const handleSignUp = (email, password) => {
+export const handleSignUp = (name, email, password) => {
   return firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((userCredential) => { 
+    updateUserName(name);
     const user = userCredential.user;
     return user;
   })
@@ -63,4 +64,15 @@ export const handleSignUp = (email, password) => {
     const errorMessage = error.message;
     return errorMessage;
   });
+}
+
+const updateUserName = name => {
+  const user = firebase.auth().currentUser;
+  user.updateProfile({
+    displayName: name
+    }).then(res => {
+      
+    }).catch(error => {
+      console.log(error);
+    });
 }

@@ -6,13 +6,13 @@ import {
   Link
 } from "react-router-dom";
 import Home from './components/Home/Home';
-import Header from './components/Header/Header';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Destination from './components/Destination/Destination';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import SearchResult from './components/SearchResult/SearchResult';
+import NotFound from './components/NotFound/NotFound';
 
 export const userContext = createContext();
 
@@ -31,14 +31,14 @@ function App() {
           <Route path="/login">
             <Login/>
           </Route>
-          <Route path="/signup">
-            <SignUp/>
-          </Route>
           <PrivateRoute path="/search-result">
             <SearchResult/>
           </PrivateRoute>
           <Route exact path="/">
-            <Home />
+            <Home/>
+          </Route>
+          <Route path="*">
+            <NotFound/>
           </Route>
         </Switch>
     </Router>

@@ -19,3 +19,13 @@
     border: 1px solid rgb(141, 133, 133);
     border-radius: 10px;
 }
+
+.create-btn{
+    border: none;
+    background-color: white;
+    color: blue;
+    font-weight: bold;
+}
+.create-btn:hover{
+    text-decoration: underline;
+}

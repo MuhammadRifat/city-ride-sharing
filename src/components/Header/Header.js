@@ -7,9 +7,10 @@ import logo from '../../images/default-monochrome.svg';
 
 const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const destinationVehicle = loggedInUser.vehicle || 'Bike';
     return (
         <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="#">
             <img
                 src={logo}
                 width="200px"
@@ -22,7 +23,7 @@ const Header = () => {
             <Nav className="ml-auto">
                 
                 <Link className="link" to="/home">Home </Link>
-                <Link className="link" to="/destination/Bus">Destination </Link>
+                <Link className="link" to={`/destination/${destinationVehicle}`}>Destination </Link>
                 <Link className="link" to="/blog">Blog </Link>
                 <Link className="link" to="/contact">Contact </Link>
                 {
