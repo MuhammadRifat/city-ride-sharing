@@ -62,8 +62,8 @@ const Login = () => {
 
     // For using login and signup
     const handleSubmit = (event) => {
-        setSpinner(true);
         if(!newUser && user.email && user.password){
+            setSpinner(true);
             handleLogIn(user.email, user.password)
             .then(res => {
                 if(res.email){
@@ -79,6 +79,7 @@ const Login = () => {
             })
         }
         if(newUser && user.email && user.password && user.confirmPassword){
+            setSpinner(true);
             if(user.password.length === user.confirmPassword.length){
                 handleSignUp(user.name, user.email, user.confirmPassword)
                 .then(res => {
