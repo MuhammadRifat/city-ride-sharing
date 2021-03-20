@@ -17,7 +17,7 @@ const Login = () => {
     });
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
+    const { from } = location.state || { from: { pathname: "/destination" } };
 
     const googleSignIn = () => {
         handleGoogleSignIn()

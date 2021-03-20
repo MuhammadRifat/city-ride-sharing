@@ -8,3 +8,17 @@
     text-decoration: none;
     color: rgb(24, 23, 23);
 }
+.userName{
+    font-weight: bold;
+}
+.btn-login{
+    border: tomato;
+    background-color:tomato;
+    border-radius: 8px;
+    width: 60px;
+    color: white;
+}
+
+.logo{
+    width: 20%;
+}

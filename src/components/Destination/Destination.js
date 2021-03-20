@@ -15,10 +15,12 @@ const Destination = () => {
     const [search, setSearch] = useState({
           pickFrom: '',
           pickTo: '',
+          date: '',
+          time: '',
           vehicle: vehicle
       });
     const handleBlur = (event) => {
-        if(event.target.name === 'pickFrom' || event.target.name === 'pickTo'){
+        if(event.target.name === 'pickFrom' || event.target.name === 'pickTo' || event.target.name === 'date' || event.target.name === 'time'){
             const newSearch = {...search};
             newSearch[event.target.name] = event.target.value;
             setSearch(newSearch);
@@ -48,6 +50,10 @@ const Destination = () => {
                             <input onBlur={handleBlur} type="text" id="pickFrom" name="pickFrom" required/><br/>
                             <label for="pickTo">Pick To</label>
                             <input onBlur={handleBlur} type="text" id="pickTo" name="pickTo" required/><br/>
+                            <label for="date">Date</label>
+                            <input onBlur={handleBlur} type="date" id="date" name="date" required/><br/>
+                            <label for="time">Time</label>
+                            <input onBlur={handleBlur} type="time" id="time" name="time" required/><br/>
                             <button onClick={handleSearch}>Search</button>
                         </form>
                     </div>

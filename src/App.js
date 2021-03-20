@@ -34,9 +34,9 @@ function App() {
           <Route path="/signup">
             <SignUp/>
           </Route>
-          <Route path="/search-result">
+          <PrivateRoute path="/search-result">
             <SearchResult/>
-          </Route>
+          </PrivateRoute>
           <Route exact path="/">
             <Home />
           </Route>
