@@ -4,27 +4,67 @@
       "name": "Bike",
       "capacity": "2",
       "image": "https://netrinoimages.s3.eu-west-2.amazonaws.com/2008/02/14/9888/138072/royal_enfield_continental_gt_2017_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_1626845_o.jpg",
-      "costPerKM": "40"
+      "available": [
+        {
+          "costPerKM": "10"
+        },
+        {
+          "costPerKM": "12"
+        },
+        {
+          "costPerKM": "15"
+        }
+      ]
     },
     {
       "id": 2,
       "name": "Car",
       "capacity": "4",
       "image": "https://image.freepik.com/free-vector/green-sports-car-isolated-white-vector_53876-64420.jpg",
-      "costPerKM": "50"
+      "available": [
+        {
+          "costPerKM": "20"
+        },
+        {
+          "costPerKM": "22"
+        },
+        {
+          "costPerKM": "24"
+        }
+      ]
     },
     {
       "id": 3,
       "name": "Bus",
       "capacity": "40",
       "image": "https://i.pinimg.com/originals/11/be/2a/11be2acbd9e08dbe7cf81ad4872c0b4f.jpg",
-      "costPerKM": "30"
+      "available": [
+        {
+          "costPerKM": "15"
+        },
+        {
+          "costPerKM": "17"
+        },
+        {
+          "costPerKM": "19"
+        }
+      ]
     },
     {
       "id": 4,
       "name": "Train",
-      "capacity": "",
+      "capacity": "100",
       "image": "https://www.renderhub.com/wirecase3d/3d-train-05/3d-train-05-02.jpg",
-      "costPerKM": "10"
+      "available": [
+        {
+          "costPerKM": "11"
+        },
+        {
+          "costPerKM": "13"
+        },
+        {
+          "costPerKM": "14"
+        }
+      ]
     }
   ]

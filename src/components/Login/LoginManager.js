@@ -32,11 +32,11 @@ export const handleFbSignIn = () => {
   .auth()
   .signInWithPopup(fbProvider)
   .then((result) => {
-    var user = result.user;
+    const user = result.user;
     return user;
   })
   .catch((error) => {
-    var errorMessage = error.message;
+    const errorMessage = error.message;
     return errorMessage;
   });
 }

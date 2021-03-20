@@ -7,9 +7,8 @@ import Header from '../Header/Header';
 import vehicles from '../../vehicleData/vehicleData.json';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserFriends } from '@fortawesome/free-solid-svg-icons'
 import './SearchResult.css';
+import VehicleDetail from '../VehicleDetail/VehicleDetail';
 
 const SearchResult = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
@@ -19,7 +18,8 @@ const SearchResult = () => {
        const selectCar =  vehicles.find(vh => vh.name === vehicle);
        setSelectVehicle(selectCar);
     }, [])
-    const {image, capacity, costPerKM} = selectVehicle;
+    const image = selectVehicle.image;
+    const capacity = selectVehicle.capacity;
     return (
         <Container>
             <Header/>
@@ -28,16 +28,14 @@ const SearchResult = () => {
                 <Col md={4}>
                     <div className="search-result">
                     <Card body className="bg-success text-white card">
-                        <h5>{pickFrom}</h5>
-                        <h5>{pickTo}</h5>
-                    </Card>
-                    <Card body className="bg-white card">
-                        <div className="d-flex justify-content-between">
-                            <img style={{width:'60px', height:'40px'}} src={image} alt=""/>
-                            <h6><FontAwesomeIcon icon={faUserFriends} /> {capacity}</h6>
-                            <h6>${costPerKM}</h6>
+                        <div className="vertical-line">
+                            <h5><li>{pickFrom}</li></h5>
+                            <h5 className="mt-4"><li>{pickTo}</li></h5>
                         </div>
                     </Card>
+                    {
+                        selectVehicle?.available?.map(quality => <VehicleDetail quality={quality} image={image} capacity={capacity}></VehicleDetail>)
+                    }
                     </div>
                 </Col>
                 <Col md={8}>

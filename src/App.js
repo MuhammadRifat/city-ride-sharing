@@ -10,7 +10,6 @@ import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Destination from './components/Destination/Destination';
 import Login from './components/Login/Login';
-import SignUp from './components/SignUp/SignUp';
 import SearchResult from './components/SearchResult/SearchResult';
 import NotFound from './components/NotFound/NotFound';
 

@@ -3,6 +3,7 @@
     border: 1px lightgray;
     border-radius: 10px;
     padding: 20px;
+    box-shadow: 0px 0px 10px black;
 }
 .search-location input{
     border: none;

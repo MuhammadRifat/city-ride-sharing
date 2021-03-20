@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,6 +11,7 @@ import Header from '../Header/Header';
 const Login = () => {
     firebaseConfigFrameWork();
     const [newUser, setNewUser] = useState(false);
+    const [spinner, setSpinner] = useState(false);
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [user, setUser] = useState({
         name: '',
@@ -30,19 +31,7 @@ const Login = () => {
         handleGoogleSignIn()
         .then(res => {
             if(res.email){
-                const newUser = {
-                    isSignIn: true,
-                    email: res.email,
-                    name: res.displayName,
-                    error: '',
-                    photo: res.photoURL,
-                    success: true,
-                    pickFrom: '',
-                    pickTo: '',
-                    vehicle: ''
-                }
-                setLoggedInUser(newUser);
-                history.replace(from);
+                handleLogInUser(res, true);
             }
             else{
                 const newUser = {
@@ -57,19 +46,7 @@ const Login = () => {
         handleFbSignIn()
         .then(res => {
             if(res.email){
-                const newUser = {
-                    isSignIn: true,
-                    email: res.email,
-                    name: res.displayName,
-                    error: '',
-                    photo: res.photoURL,
-                    success: true,
-                    pickFrom: '',
-                    pickTo: '',
-                    vehicle: ''
-                }
-                setLoggedInUser(newUser);
-                history.replace(from);
+                handleLogInUser(res, true);
             }
             else{
                 const newUser = {
@@ -81,29 +58,19 @@ const Login = () => {
     }
 
     const handleSubmit = (event) => {
+        setSpinner(true);
         if(!newUser && user.email && user.password){
             handleLogIn(user.email, user.password)
             .then(res => {
                 if(res.email){
-                    const newUser = {
-                        isSignIn: true,
-                        email: res.email,
-                        name: res.displayName,
-                        error: '',
-                        photo: res.photoURL,
-                        success: true,
-                        pickFrom: '',
-                        pickTo: '',
-                        vehicle: ''
-                    }
-                    setLoggedInUser(newUser);
-                    history.replace(from);
+                    handleLogInUser(res, true);
                 }
                 else{
                     const newUser = {
                         error: res
                     }
                     setLoggedInUser(newUser);
+                    setSpinner(false);
                 }
             })
         }
@@ -112,20 +79,11 @@ const Login = () => {
                 handleSignUp(user.name, user.email, user.confirmPassword)
                 .then(res => {
                     if(res.email){
-                        const newUser = {
-                            isSignIn: true,
-                            email: res.email,
-                            name: res.displayName,
-                            error: '',
-                            photo: res.photoURL,
-                            pickFrom: '',
-                            pickTo: '',
-                            vehicle: ''
-                        }
-                        setLoggedInUser(newUser);
+                        handleLogInUser(res, false);
                         const userDetail = {...user};
                         userDetail.error = "";
                         setUser(userDetail);
+                        setSpinner(false);
                     }
                     else{
                         const newUser = {
@@ -135,6 +93,7 @@ const Login = () => {
                         const userDetail = {...user};
                         userDetail.error = "";
                         setUser(userDetail);
+                        setSpinner(false);
                     }
                 })
             }
@@ -142,6 +101,7 @@ const Login = () => {
                 const userDetail = {...user};
                 userDetail.error = "Confirm password do not match";
                 setUser(userDetail);
+                setSpinner(false);
             }
         }
         event.preventDefault();
@@ -167,6 +127,32 @@ const Login = () => {
                 setUser(newUser);
             }    
     }
+
+    const handleLogInUser = (res, isReplace) => {
+        const newUser = {
+            isSignIn: true,
+            email: res.email,
+            name: res.displayName,
+            error: '',
+            photo: res.photoURL,
+            success: true,
+            pickFrom: '',
+            pickTo: '',
+            vehicle: ''
+        }
+        setLoggedInUser(newUser);
+        isReplace && history.replace(from);
+    }
+
+    const handleLogInOrCreate = () =>{
+        setNewUser(!newUser);
+        const newLoggedInUser = {...loggedInUser};
+        newLoggedInUser.error = '';
+        setLoggedInUser(newLoggedInUser);
+        const userDetail = {...user};
+        userDetail.error = '';
+        setUser(userDetail);
+    }
     return (
         <Container>
         <Header/>
@@ -186,6 +172,9 @@ const Login = () => {
                         }
                         <form className="login-form" onSubmit={handleSubmit}>
                             {
+                                spinner && <Spinner className="text-center" animation="border" />
+                            }
+                            {
                                 newUser && <input type="text" onBlur={handleBlur} name="name" placeholder="Name" required/>
                             }
                             <br/><input type="text" onBlur={handleBlur} name="email" placeholder="Email" required/><br/>
@@ -197,7 +186,7 @@ const Login = () => {
                             }
                             <br/><input className="submit-btn" type="submit" value={newUser ? "Create an account" : "Login"}/>
                         </form>
-                        <h6 className="mt-3 text-center">{newUser ? <span>Already have an account?<button className="create-btn" onClick={() => setNewUser(!newUser)}>Login</button></span> : <span>Don't have an account? <button className="create-btn" onClick={() => setNewUser(!newUser)}>Create an account</button></span>}</h6>
+                        <h6 className="mt-3 text-center">{newUser ? <span>Already have an account?<button className="create-btn" onClick={() => handleLogInOrCreate()}>Login</button></span> : <span>Don't have an account? <button className="create-btn" onClick={() => handleLogInOrCreate()}>Create an account</button></span>}</h6>
                     </div>
                     <hr/>
                     <h5 className="text-center">Or</h5>
