@@ -7,7 +7,7 @@ import logo from '../../images/default-monochrome.svg';
 
 const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
-    const destinationVehicle = loggedInUser.vehicle || 'Bike';
+    const destinationVehicle = loggedInUser.vehicle || 'Bike';      // conditionally set vehicle
     return (
         <Navbar collapseOnSelect expand="lg">
             <Navbar.Brand href="#">
@@ -27,6 +27,7 @@ const Header = () => {
                 <Link className="link" to="/blog">Blog </Link>
                 <Link className="link" to="/contact">Contact </Link>
                 {
+                    // For using conditionally shows login button or user name
                     loggedInUser.name ? <span className="link userName">{loggedInUser.name}</span> : <Link className="link" to="/login"><button className="btn-login">Login</button></Link>
                 }
             </Nav>

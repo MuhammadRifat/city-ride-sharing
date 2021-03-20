@@ -11,6 +11,7 @@ export const firebaseConfigFrameWork = () => {
     }
 }
 
+// Google sign in
 export const handleGoogleSignIn = () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     return firebase.auth()
@@ -26,6 +27,7 @@ export const handleGoogleSignIn = () => {
   });
 }
 
+// Facebook sign in
 export const handleFbSignIn = () => {
     const fbProvider = new firebase.auth.FacebookAuthProvider();
     return firebase
@@ -41,6 +43,7 @@ export const handleFbSignIn = () => {
   });
 }
 
+// For user login
 export const handleLogIn = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password)
   .then((userCredential) => {
@@ -53,6 +56,7 @@ export const handleLogIn = (email, password) => {
   });
 }
 
+// For manually user sign up
 export const handleSignUp = (name, email, password) => {
   return firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((userCredential) => { 
@@ -66,6 +70,7 @@ export const handleSignUp = (name, email, password) => {
   });
 }
 
+// update user name
 const updateUserName = name => {
   const user = firebase.auth().currentUser;
   user.updateProfile({

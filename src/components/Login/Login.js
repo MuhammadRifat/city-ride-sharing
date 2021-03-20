@@ -9,6 +9,7 @@ import { firebaseConfigFrameWork, handleFbSignIn, handleGoogleSignIn, handleLogI
 import Header from '../Header/Header';
 
 const Login = () => {
+    // access firebase config
     firebaseConfigFrameWork();
     const [newUser, setNewUser] = useState(false);
     const [spinner, setSpinner] = useState(false);
@@ -27,6 +28,7 @@ const Login = () => {
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
 
+    // For using sign in with google
     const googleSignIn = () => {
         handleGoogleSignIn()
         .then(res => {
@@ -42,6 +44,7 @@ const Login = () => {
         })
     }
 
+    // For using sign in with facebook
     const fbSignIn = () => {
         handleFbSignIn()
         .then(res => {
@@ -57,6 +60,7 @@ const Login = () => {
         })
     }
 
+    // For using login and signup
     const handleSubmit = (event) => {
         setSpinner(true);
         if(!newUser && user.email && user.password){
@@ -107,6 +111,7 @@ const Login = () => {
         event.preventDefault();
     }
 
+    // For accessing user information from input and validating data
     const handleBlur = (event) => {
         let isValid = true;
         if(event.target.name === 'email'){
@@ -128,6 +133,7 @@ const Login = () => {
             }    
     }
 
+    // For using to reduce repetition code
     const handleLogInUser = (res, isReplace) => {
         const newUser = {
             isSignIn: true,
@@ -144,6 +150,7 @@ const Login = () => {
         isReplace && history.replace(from);
     }
 
+    // Conditionally showing log in and create new account button
     const handleLogInOrCreate = () =>{
         setNewUser(!newUser);
         const newLoggedInUser = {...loggedInUser};

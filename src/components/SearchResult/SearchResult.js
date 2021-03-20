@@ -15,6 +15,7 @@ const SearchResult = () => {
     const {pickFrom, pickTo, vehicle} = loggedInUser;
     const [selectVehicle, setSelectVehicle] = useState({});
     useEffect( () => {
+        // For finding all selected vehicle
        const selectCar =  vehicles.find(vh => vh.name === vehicle);
        setSelectVehicle(selectCar);
     }, [])

@@ -19,6 +19,7 @@ const Destination = () => {
           time: '',
           vehicle: vehicle
       });
+    // For accessing data from input field.
     const handleBlur = (event) => {
         if(event.target.name === 'pickFrom' || event.target.name === 'pickTo' || event.target.name === 'date' || event.target.name === 'time'){
             const newSearch = {...search};
@@ -28,6 +29,7 @@ const Destination = () => {
     }
 
     const history = useHistory();
+    // For searching destination
     const handleSearch = (event) => {
         const newData = {...loggedInUser};
         newData.pickFrom = search.pickFrom;
@@ -45,7 +47,7 @@ const Destination = () => {
             <Row className="mt-3">
                 <Col md={4}>
                     <div className="search-location">
-                        <form>
+                        <form onSubmit={handleSearch}>
                             <label for="pickFrom">Pick From</label>
                             <input onBlur={handleBlur} type="text" id="pickFrom" name="pickFrom" required/><br/>
                             <label for="pickTo">Pick To</label>
@@ -54,13 +56,14 @@ const Destination = () => {
                             <input onBlur={handleBlur} type="date" id="date" name="date" required/><br/>
                             <label for="time">Time</label>
                             <input onBlur={handleBlur} type="time" id="time" name="time" required/><br/>
-                            <button onClick={handleSearch}>Search</button>
+                            <button>Search</button>
                         </form>
                     </div>
                 </Col>
                 <Col md={8}>
                 <div className="google-maps">
-                    <GoogleMap/>
+                    {/* For google map */}
+                    <GoogleMap/>    
                 </div>
                 </Col>
             </Row>
